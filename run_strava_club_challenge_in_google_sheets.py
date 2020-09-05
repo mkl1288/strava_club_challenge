@@ -290,7 +290,7 @@ def write_to_sheet(sht, weekly_user_dict, user_ct):
                     update_cell = str(date_col) + str(row_nbr)
                     value = weekly_user_dict[week][user]['value']
 
-                sht.update(update_cell, value)
+                    sht.update(update_cell, value)
 
 
 def main():
