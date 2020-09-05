@@ -285,9 +285,10 @@ def write_to_sheet(sht, weekly_user_dict, user_ct):
                 # get user's row number
                 row_nbr = weekly_user_dict[week][user]['row_nbr']
 
-                # write value to week/user cell
-                update_cell = str(date_col) + str(row_nbr)
-                value = weekly_user_dict[week][user]['value']
+                # write value to week/user cell if it isn't 0 (to save on API calls)
+                if weekly_user_dict[week][user]['value'] > 0:
+                    update_cell = str(date_col) + str(row_nbr)
+                    value = weekly_user_dict[week][user]['value']
 
                 sht.update(update_cell, value)
 
