@@ -244,7 +244,7 @@ def parse_activity_data(weekly_user_dict, user_dict, activities):
 
         for index, row in activity.iterrows():
             
-            if row['type'] == 'Ride':
+            if row['type'] == 'Ride' or row['type'] == 'VirtualRide':
                 activity_date = datetime.strptime(row['start_date_local'][:10], '%Y-%m-%d')
                 week_of = pendulum.instance(activity_date).start_of('week').date()
                 activity_mileage = int(float(row['distance'])) # in meters
